@@ -44,7 +44,7 @@ const addtoCart = productBox => {
                    <span class="cart-product-price">${productPrice}</span>
                    <div class="cart-quantity">
                      <button id="decrement">-</button>
-                     <span class="number">${num}</span>
+                     <span class="number">1</span>
                      <button id="increment">+</button>
                    </div>
               </div>
@@ -57,6 +57,33 @@ const addtoCart = productBox => {
     cartRemove.addEventListener("click", () => {
     cartBox.remove()
   });
+
+const Decrement = cartBox.querySelector("#decrement");
+const Increment = cartBox.querySelector("#increment");
+const num = cartBox.querySelector(".number");
+
+
+Decrement.addEventListener("click", () => {
+
+    let quantity = Number(num.textContent);
+
+    if(quantity > 0){
+        quantity--;
+    }
+
+    num.textContent = quantity;
+});
+
+
+Increment.addEventListener("click", () => {
+
+    let quantity = Number(num.textContent);
+
+    quantity++;
+
+    num.textContent = quantity;
+});
+
 }
 
 
