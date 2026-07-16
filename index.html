@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"content="A responsive shopping cart website built with HTML, CSS, and JavaScript.">
+    <meta name="author" content="Osama Al-Khatib">
+    <meta name="keywords"content="shopping cart, html, css, javascript, frontend">
+    <title>Cart Shopping</title>
+
+    <!-- Google Font {"Poppins"} -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!--Icon https://remixicon.com/-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/> 
+
+    <link rel="stylesheet" href="./src/css/style.css">
+
+    <script src="./src/js/main.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+         <header>
+              <a href="#" class="logo">Ecommerce</a>
+
+              <div class="shopping-bag" id="cart-icon">
+                <i class="ri-shopping-bag-line"></i>
+                <span id="counter">5</span>
+              </div>
+         </header>
+
+         <section class="shop">
+           <h1 class="section-title">Shop Products</h1>
+            <div class="Product-content">
+              
+              <!--box 1--> 
+              <div class="Product-box">
+                    <div class="img-box">
+                      <img src="./assets/images/product1.jpg" >
+                    </div>
+                    <h5 class="Product-title">Casual Black Polo</h5>
+                    <div class="price-and-cart">
+                      <span class="price">$100</span>
+                      <i class="ri-shopping-bag-line add-cart"></i>
+                    </div>
+               </div>
+ 
+               <!--box 2-->
+                <div class="Product-box">
+                    <div class="img-box">
+                      <img src="./assets/images/product2.jpg" >
+                    </div>
+                    <h5 class="Product-title">waterproof Hoodie</h5>
+                    <div class="price-and-cart">
+                      <span class="price">$50</span>
+                      <i class="ri-shopping-bag-line add-cart"></i>
+                    </div>
+               </div>
+
+               <!--box 3-->
+                <div class="Product-box">
+                    <div class="img-box">
+                      <img src="./assets/images/product3.jpg" >
+                    </div>
+                    <h5 class="Product-title">Blue Sweatshirt</h5>
+                    <div class="price-and-cart">
+                      <span class="price">$20</span>
+                      <i class="ri-shopping-bag-line add-cart"></i>
+                    </div>
+               </div>
+
+               <!--box 4-->
+                <div class="Product-box">
+                    <div class="img-box">
+                      <img src="./assets/images/product4.jpg" >
+                    </div>
+                    <h5 class="Product-title">Hooded Urban Jacket</h5>
+                    <div class="price-and-cart">
+                      <span class="price">$125</span>
+                      <i class="ri-shopping-bag-line add-cart"></i>
+                    </div>
+               </div>
+
+               <!--box 5-->
+                <div class="Product-box">
+                    <div class="img-box">
+                      <img src="./assets/images/product5.jpg" >
+                    </div>
+                    <h5 class="Product-title">Cold Weather Jacket</h5>
+                    <div class="price-and-cart">
+                      <span class="price">$147</span>
+                      <i class="ri-shopping-bag-line add-cart"></i>
+                    </div>
+               </div>
+
+               <!--box 6-->
+                <div class="Product-box">
+                    <div class="img-box">
+                      <img src="./assets/images/product6.jpg" >
+                    </div>
+                    <h5 class="Product-title">Sporty Jacket</h5>
+                    <div class="price-and-cart">
+                      <span class="price">$80</span>
+                      <i class="ri-shopping-bag-line add-cart"></i>
+                    </div>
+               </div>
+
+               <!--box 7-->
+                  <div class="Product-box">
+                    <div class="img-box">
+                      <img src="./assets/images/product7.jpg" >
+                    </div>
+                    <h5 class="Product-title">Olive Heritage Hoodie</h5>
+                    <div class="price-and-cart">
+                      <span class="price">$62</span>
+                      <i class="ri-shopping-bag-line add-cart"></i>
+                    </div>
+               </div>
+
+               <!--box 8-->
+                  <div class="Product-box">
+                    <div class="img-box">
+                      <img src="./assets/images/product8.jpg" >
+                    </div>
+                    <h5 class="Product-title">Bright Horizon Polo</h5>
+                    <div class="price-and-cart">
+                      <span class="price">$70</span>
+                      <i class="ri-shopping-bag-line add-cart"></i>
+                    </div>
+               </div>
+            </div>
+         </section>
+
+
+         <div class="cart-sidebar">
+          <div class="cart-close"><i class="ri-close-large-line"></i></div>
+          <h2 class="cart-title">Your Cart</h2>
+           <div class="cart-content">
+
+            <!-- <div class="cart-box">
+              <img src="./assets/images/product1.jpg" >
+              <div class="cart-detail">
+                   <h5 class="cart-product-title">Casual Black Polo</h5>
+                   <span class="cart-product-price">$100</span>
+                   <div class="cart-quantity">
+                     <button id="decrement">-</button>
+                     <span class="number">0</span>
+                     <button id="increment">+</button>
+                   </div>
+              </div>
+               <i class="ri-delete-bin-line cart-remove"></i>
+            </div> -->
+            
+           </div>
+           <hr>
+             <div class="Total">
+               <span>Total $450</span>
+             </div>
+              <button class="buy">Buy Now</button>
+         </div>
+
+    </div>
+</body>
+</html>
