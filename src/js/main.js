@@ -25,6 +25,16 @@ const addtoCart = productBox => {
   const productTitle = productBox.querySelector(".Product-title").textContent;
   const productPrice = productBox.querySelector(".price").textContent
 
+
+  const carItems = cartContent.querySelectorAll(".cart-product-title")
+   for(let item of carItems){
+      if(item.textContent === productTitle){
+         alert("This product is already in the cart.");
+         return
+      }
+  }
+
+
   const cartBox = document.createElement("div")
   cartBox.classList.add("cart-box")
   cartBox.innerHTML = `
@@ -34,7 +44,7 @@ const addtoCart = productBox => {
                    <span class="cart-product-price">${productPrice}</span>
                    <div class="cart-quantity">
                      <button id="decrement">-</button>
-                     <span class="number">0</span>
+                     <span class="number">${num}</span>
                      <button id="increment">+</button>
                    </div>
               </div>
@@ -42,6 +52,11 @@ const addtoCart = productBox => {
   
   `;
   cartContent.appendChild(cartBox);
+
+    const cartRemove = cartBox.querySelector(".cart-remove")
+    cartRemove.addEventListener("click", () => {
+    cartBox.remove()
+  });
 }
 
 
