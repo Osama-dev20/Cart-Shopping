@@ -235,3 +235,72 @@ header .shopping-bag .ri-shopping-bag-line{
  display: block;
  cursor: pointer;
 }
+
+
+.order-modal{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+}
+
+
+.order-modal.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.modal-box{
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 350px;
+}
+
+
+.modal-box i{
+    font-size: 50px;
+    color: green;
+}
+
+
+.modal-box h2{
+    margin: 15px 0;
+}
+
+
+.order-total{
+    font-weight: bold;
+}
+
+
+.modal-close{
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: #e35f26;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+@media screen and (max-width:360px) {
+
+    .Product-content{
+        grid-template-columns: 1fr;
+    }
+
+    .cart-sidebar{
+        width: 100%;
+    }
+
+}
+

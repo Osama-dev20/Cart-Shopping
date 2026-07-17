@@ -141,3 +141,35 @@ const TotalPrice = () => {
 
     totalPrice.textContent = `$${total}`;
 };
+
+const buyBtn = document.querySelector(".buy");
+
+const orderModal = document.querySelector(".order-modal");
+const modalClose = document.querySelector(".modal-close");
+const orderTotal = document.querySelector(".order-total");
+
+
+buyBtn.addEventListener("click",()=>{
+
+    const cartBoxes = cartContent.querySelectorAll(".cart-box");
+
+
+    if(cartBoxes.length === 0){
+        alert("Your cart is empty.");
+        return;
+    }
+
+
+    orderTotal.textContent = document.querySelector(".total-price").textContent;
+
+
+    orderModal.classList.add("active");
+
+});
+
+
+modalClose.addEventListener("click",()=>{
+
+    orderModal.classList.remove("active");
+
+});
