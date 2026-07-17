@@ -84,8 +84,10 @@ Increment.addEventListener("click", () => {
     num.textContent = quantity;
 });
 
+const Counter = document.getElementById("counter");
+
+const cartCount = cartContent.querySelectorAll(".cart-box").length;
+
+Counter.textContent = cartCount;
+
 }
-
-
-
-
