@@ -63,7 +63,7 @@ header .shopping-bag .ri-shopping-bag-line{
  display: flex;
  justify-content: center;
  align-items: center;
- visibility: visible;
+ visibility: hidden;
 }
 
 
