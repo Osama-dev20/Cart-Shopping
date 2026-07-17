@@ -6,6 +6,12 @@
 
 ---
 
+## Preview
+
+![Cart Shopping Preview](./assets/screenshots/preview.png)
+
+---
+
 ## Overview
 
 Cart Shopping is a responsive e-commerce shopping cart application built using **HTML, CSS, and JavaScript**.
@@ -69,6 +75,9 @@ This project was developed to strengthen my front-end development skills and pra
 ```text
 Cart Shopping
 │
+├── screenshots
+│   └── preview.png
+│
 ├── assets
 │   └── images
 │
@@ -80,4 +89,3 @@ Cart Shopping
 │       └── main.js
 │
 └── index.html
-```
