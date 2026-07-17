@@ -130,7 +130,10 @@ header .shopping-bag .ri-shopping-bag-line{
  transition: .7s;
  padding: 20px;
  z-index: 1000;
+ flex: 1;
+ overflow-y: auto;
 }
+
 
 .cart-sidebar.active{
  right: 0;
@@ -238,60 +241,59 @@ header .shopping-bag .ri-shopping-bag-line{
 
 
 .order-modal{
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    visibility: hidden;
-    opacity: 0;
-    transition: .3s;
+ position: fixed;
+ inset: 0;
+ background: rgba(0,0,0,0.5); 
+ display: flex;
+ justify-content: center;
+ align-items: center; 
+ visibility: hidden;
+ opacity: 0;
+ transition: .3s;
 }
 
 
 .order-modal.active{
-    visibility: visible;
-    opacity: 1;
+ visibility: visible;
+ opacity: 1;
 }
 
 
 .modal-box{
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    width: 350px;
+ background: white;
+ padding: 30px;
+ border-radius: 15px;
+ text-align: center;
+ width: 350px;
 }
 
 
 .modal-box i{
-    font-size: 50px;
-    color: green;
+ font-size: 50px;
+ color: green;
 }
 
 
 .modal-box h2{
-    margin: 15px 0;
+ margin: 15px 0;
 }
 
 
 .order-total{
-    font-weight: bold;
+ font-weight: bold;
 }
 
 
 .modal-close{
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    background: #e35f26;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
+ margin-top: 20px;
+ padding: 10px 20px;
+ border: none;
+ background: #e35f26;
+ color: white;
+ border-radius: 8px;
+ cursor: pointer;
 }
+
 @media screen and (max-width:360px) {
 
     .Product-content{
