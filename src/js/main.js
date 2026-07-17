@@ -1,93 +1,143 @@
-cartIcon = document.querySelector("#cart-icon")
-cartSidebar = document.querySelector(".cart-sidebar")
-Xclose = document.querySelector(".cart-close")
+const cartIcon = document.querySelector("#cart-icon");
+const cartSidebar = document.querySelector(".cart-sidebar");
+const Xclose = document.querySelector(".cart-close");
 
-cartIcon.addEventListener("click", () =>{
-  cartSidebar.classList.add("active")
+const cartContent = document.querySelector(".cart-content");
+const addCartBtn = document.querySelectorAll(".add-cart");
+const Counter = document.getElementById("counter");
+
+// فتح وإغلاق السلة
+cartIcon.addEventListener("click", () => {
+    cartSidebar.classList.add("active");
 });
 
 Xclose.addEventListener("click", () => {
-  cartSidebar.classList.remove("active")    
-})
-
-
-cartContent = document.querySelector(".cart-content")
-addCartBtn = document.querySelectorAll(".add-cart")   // More than one element
-addCartBtn.forEach(button => {
-  button.addEventListener("click", event => {
-     const productBox = event.target.closest(".Product-box")
-     addtoCart(productBox)
-  });
+    cartSidebar.classList.remove("active");
 });
 
-const addtoCart = productBox => {
-  const productImg = productBox.querySelector("img").src;
-  const productTitle = productBox.querySelector(".Product-title").textContent;
-  const productPrice = productBox.querySelector(".price").textContent
+// تحديث عداد السلة
+const updateCounter = () => {
+    const cartCount = cartContent.querySelectorAll(".cart-box").length;
 
+    Counter.textContent = cartCount;
+    Counter.style.visibility = cartCount > 0 ? "visible" : "hidden";
+};
 
-  const carItems = cartContent.querySelectorAll(".cart-product-title")
-   for(let item of carItems){
-      if(item.textContent === productTitle){
-         alert("This product is already in the cart.");
-         return
-      }
-  }
+// إضافة المنتج للسلة
+addCartBtn.forEach(button => {
+    button.addEventListener("click", event => {
+        const productBox = event.target.closest(".Product-box");
+        addToCart(productBox);
+    });
+});
 
+const addToCart = productBox => {
 
-  const cartBox = document.createElement("div")
-  cartBox.classList.add("cart-box")
-  cartBox.innerHTML = `
-                 <img src="${productImg}" >
-              <div class="cart-detail">
-                   <h5 class="cart-product-title">${productTitle}</h5>
-                   <span class="cart-product-price">${productPrice}</span>
-                   <div class="cart-quantity">
-                     <button id="decrement">-</button>
-                     <span class="number">1</span>
-                     <button id="increment">+</button>
-                   </div>
-              </div>
-               <i class="ri-delete-bin-line cart-remove"></i>
-  
-  `;
-  cartContent.appendChild(cartBox);
+    const productImg = productBox.querySelector("img").src;
+    const productTitle = productBox.querySelector(".Product-title").textContent;
+    const productPrice = productBox.querySelector(".price").textContent;
 
-    const cartRemove = cartBox.querySelector(".cart-remove")
-    cartRemove.addEventListener("click", () => {
-    cartBox.remove()
-  });
+    // منع التكرار
+    const cartItems = cartContent.querySelectorAll(".cart-product-title");
 
-const Decrement = cartBox.querySelector("#decrement");
-const Increment = cartBox.querySelector("#increment");
-const num = cartBox.querySelector(".number");
-
-
-Decrement.addEventListener("click", () => {
-
-    let quantity = Number(num.textContent);
-
-    if(quantity > 0){
-        quantity--;
+    for (const item of cartItems) {
+        if (item.textContent === productTitle) {
+            alert("This product is already in the cart.");
+            return;
+        }
     }
 
-    num.textContent = quantity;
-});
+    // إنشاء المنتج داخل السلة
+    const cartBox = document.createElement("div");
+    cartBox.classList.add("cart-box");
 
+    cartBox.innerHTML = `
+        <img src="${productImg}">
 
-Increment.addEventListener("click", () => {
+        <div class="cart-detail">
+            <h5 class="cart-product-title">${productTitle}</h5>
 
-    let quantity = Number(num.textContent);
+            <span class="cart-product-price">${productPrice}</span>
 
-    quantity++;
+            <div class="cart-quantity">
+                <button class="decrement">-</button>
+                <span class="number">1</span>
+                <button class="increment">+</button>
+            </div>
+        </div>
 
-    num.textContent = quantity;
-});
+        <i class="ri-delete-bin-line cart-remove"></i>
+    `;
 
-const Counter = document.getElementById("counter");
+    cartContent.appendChild(cartBox);
 
-const cartCount = cartContent.querySelectorAll(".cart-box").length;
+    // حذف المنتج
+    const cartRemove = cartBox.querySelector(".cart-remove");
 
-Counter.textContent = cartCount;
+    cartRemove.addEventListener("click", () => {
+        cartBox.remove();
+        updateCounter();
+        TotalPrice();
+    });
 
-}
+    // عناصر الكمية
+    const decrement = cartBox.querySelector(".decrement");
+    const increment = cartBox.querySelector(".increment");
+    const number = cartBox.querySelector(".number");
+
+    // إنقاص الكمية
+    decrement.addEventListener("click", () => {
+
+        let quantity = Number(number.textContent);
+
+        if (quantity > 1) {
+            quantity--;
+        }
+
+        number.textContent = quantity;
+
+        TotalPrice();
+    });
+
+    // زيادة الكمية
+    increment.addEventListener("click", () => {
+
+        let quantity = Number(number.textContent);
+
+        quantity++;
+
+        number.textContent = quantity;
+
+        TotalPrice();
+    });
+
+    updateCounter();
+    TotalPrice();
+};
+
+// حساب السعر الكلي
+const TotalPrice = () => {
+
+    const totalPrice = document.querySelector(".total-price");
+
+    const cartBoxes = document.querySelectorAll(".cart-box");
+
+    let total = 0;
+
+    cartBoxes.forEach(cartBox => {
+
+        const price = Number(
+            cartBox
+                .querySelector(".cart-product-price")
+                .textContent.replace("$", "")
+        );
+
+        const quantity = Number(
+            cartBox.querySelector(".number").textContent
+        );
+
+        total += price * quantity;
+    });
+
+    totalPrice.textContent = `$${total}`;
+};
